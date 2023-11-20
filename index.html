@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>App Rental Mobil</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="manifest" href="manifest.json">
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <div class="site-wrap" id="home-section">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+
+    <header class="site-navbar site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center position-relative">
+
+          <div class="col-3 ">
+            <div class="site-logo">
+              <a href="index.html">Rental Mobil</a>
+            </div>
+          </div>
+
+          <div class="col-9  text-right">
+
+
+            <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav ml-auto ">
+
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="text-white">Selamat Datang di Aplikasi Rental Mobil</h2>
+          </div>
+        </div>
+      </div>
+
+    </header>
+
+    <div class="ftco-blocks-cover-1">
+      <div class="ftco-cover-1 overlay" style="background-image: url('images/img_3.jpg')">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-5">
+              <div class="feature-car-rent-box-1">
+                <h3>Pembayaran</h3>
+                <ul class="list-unstyled">
+                  <label>Nama Kendaraan</label>
+                  <select name="namakendaraan" id="nama_kendaraan" class="form-control">
+                    <option>Pilih Kendaraan</option>
+                    <option value="Avanza">Avanza</option>
+                    <option value="Fortuner">Fortuner</option>
+                    <option value="Alphard">Alphard</option>
+                    <option value="Pajero Sport">Pajero Sport</option>
+                    <option value="Sigra">Sigra</option>
+                  </select>
+                  <label>Jumlah Hari</label>
+                  <input type="number" id="input_jumlah" placeholder="Jumlah hari..." class="form-control" value="" />
+                  <input type="button" id="tombol_hitung" onclick="tampilkan_jumlah()" value="Harga Sewa"
+                    class="btn btn-primary" />
+                  <br />
+                  <h3>Total Harga: <span id="hasil"></span></h3>
+                  <br />
+                  <input type="number" id="input_bayar" placeholder="Bayar....." class="form-control" value="" />
+                  <input type="submit" id="tombol_bayar" value="Bayar" class="btn btn-primary">
+
+                  <h3>Uang Kembalian: <span id="hasil2"></span></h3>
+                  <h3 class="ucapan"><span id="hadiah"></span></h3>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section pt-0 pb-0 bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+
+              <form class="trip-form">
+                <div class="row align-items-center mb-4">
+                  <div class="col-md-6">
+                    <h3 class="m-0">Registrasi</h3>
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-3">
+                    <label>Nama</label>
+                    <input type="text" name="nama" placeholder="Nama..." class="form-control" />
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Alamat</label>
+                    <input type="text" name="alamat" placeholder="Alamat..." class="form-control" />
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Tanggal Penyewaan</label>
+                    <input type="text" name="tanggalsewa" placeholder="Penyewaan..."
+                      class="form-control datepicker px-3" />
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Tanggal Pengembalian</label>
+                    <input type="text" name="tanggalkembali" placeholder="Pengembalian"
+                      class="form-control datepicker px-3" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <input type="button" onclick="addData()" value="Submit" class="btn btn-primary" />
+                  </div>
+                </div>
+                <br />
+                <div class="center">
+                  <h3>Data Penyewa :</h3>
+                  <ul id="list-pelanggan"></ul>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="site-section bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <h3>Daftar Kendaraan</h3>
+              <p class="mb-4">Beberapa jenis kendaraan yang bisa Anda pilih</p>
+              <p>
+                <a href="#" class="btn btn-primary custom-prev">Previous</a>
+                <span class="mx-2">/</span>
+                <a href="#" class="btn btn-primary custom-next">Next</a>
+              </p>
+            </div>
+            <div class="col-lg-9">
+              <div class="nonloop-block-13 owl-carousel">
+                <div class="item-1">
+                  <a href="#"><img src="images/avanza.jpg" alt="Image" class="img-fluid"></a>
+                  <div class="item-1-contents">
+                    <div class="text-center">
+                      <h3><a href="#">Toyota Avanza</a></h3>
+                      <div class="rent-price"><span>Rp.300.000/</span>Hari</div>
+                      <div><span>Discount 10% lebih dari 2 hari</span></div>
+                      <div><span>Discount 20% lebih dari 5 hari</span></div>
+                    </div>
+                    <ul class="specs">
+                      <li>
+                        <span>Pintu</span>
+                        <span class="spec">4</span>
+                      </li>
+                      <li>
+                        <span>Kursi</span>
+                        <span class="spec">7</span>
+                      </li>
+                      <li>
+                        <span>Transmission</span>
+                        <span class="spec">Automatic</span>
+                      </li>
+                      <li>
+                        <span>Warna</span>
+                        <span class="spec">Hitam</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+                <div class="item-1">
+                  <a href="#"><img src="images/fortuner.jpg" alt="Image" class="img-fluid"></a>
+                  <div class="item-1-contents">
+                    <div class="text-center">
+                      <h3><a href="#">Toyota Fortuner</a></h3>
+                      <div class="rent-price"><span>Rp.500.000/</span>Hari</div>
+                      <div><span>Discount 10% lebih dari 2 hari</span></div>
+                      <div><span>Discount 20% lebih dari 5 hari</span></div>
+                    </div>
+                    <ul class="specs">
+                      <li>
+                        <span>Pintu</span>
+                        <span class="spec">4</span>
+                      </li>
+                      <li>
+                        <span>Kursi</span>
+                        <span class="spec">6</span>
+                      </li>
+                      <li>
+                        <span>Transmission</span>
+                        <span class="spec">Automatic</span>
+                      </li>
+                      <li>
+                        <span>Warna</span>
+                        <span class="spec">Putih</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="item-1">
+                  <a href="#"><img src="images/alphard.jpg" alt="Image" class="img-fluid"></a>
+                  <div class="item-1-contents">
+                    <div class="text-center">
+                      <h3><a href="#">Toyota Alphard</a></h3>
+                      <div class="rent-price"><span>Rp.700.000/</span>Hari</div>
+                      <div><span>Discount 10% lebih dari 2 hari</span></div>
+                      <div><span>Discount 20% lebih dari 5 hari</span></div>
+                    </div>
+                    <ul class="specs">
+                      <li>
+                        <span>Pintu</span>
+                        <span class="spec">5</span>
+                      </li>
+                      <li>
+                        <span>Kursi</span>
+                        <span class="spec">6</span>
+                      </li>
+                      <li>
+                        <span>Transmission</span>
+                        <span class="spec">Automatic</span>
+                      </li>
+                      <li>
+                        <span>Warna</span>
+                        <span class="spec">Putih</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="item-1">
+                  <a href="#"><img src="images/pajero sport.jpg" alt="Image" class="img-fluid"></a>
+                  <div class="item-1-contents">
+                    <div class="text-center">
+                      <h3><a href="#">Mitsubishi Pajero Sport</a></h3>
+                      <div class="rent-price"><span>Rp.500.000/</span>Hari</div>
+                      <div><span>Discount 10% lebih dari 2 hari</span></div>
+                      <div><span>Discount 20% lebih dari 5 hari</span></div>
+                    </div>
+                    <ul class="specs">
+                      <li>
+                        <span>Pintu</span>
+                        <span class="spec">4</span>
+                      </li>
+                      <li>
+                        <span>Kursi</span>
+                        <span class="spec">6</span>
+                      </li>
+                      <li>
+                        <span>Transmission</span>
+                        <span class="spec">Automatic</span>
+                      </li>
+                      <li>
+                        <span>Warna</span>
+                        <span class="spec">Putih</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="item-1">
+                  <a href="#"><img src="images/sigra.png" alt="Image" class="img-fluid"></a>
+                  <div class="item-1-contents">
+                    <div class="text-center">
+                      <h3><a href="#">Daihatsu Sigra</a></h3>
+                      <div class="rent-price"><span>Rp.250.000/</span>Hari</div>
+                      <div><span>Discount 10% lebih dari 2 hari</span></div>
+                      <div><span>Discount 20% lebih dari 5 hari</span></div>
+                    </div>
+                    <ul class="specs">
+                      <li>
+                        <span>Pintu</span>
+                        <span class="spec">4</span>
+                      </li>
+                      <li>
+                        <span>Kursi</span>
+                        <span class="spec">6</span>
+                      </li>
+                      <li>
+                        <span>Transmission</span>
+                        <span class="spec">Automatic</span>
+                      </li>
+                      <li>
+                        <span>Warna</span>
+                        <span class="spec">Putih</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-section section-3" style="background-image: url('images/img_1.jpg');">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 text-center mb-5">
+              <h2 class="text-white">Terima Kasih telah mengunjungi Aplikasi Rental Mobil Kami</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <h2 class="footer-heading mb-4">About Us</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+                blind texts. </p>
+            </div>
+            <div class="col-lg-8 ml-auto">
+              <div class="row">
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Quick Links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Quick Links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Quick Links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3">
+                  <h2 class="footer-heading mb-4">Quick Links</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pt-5 mt-5 text-center">
+            <div class="col-md-12">
+              <div class="border-top pt-5">
+                <p>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  Copyright &copy;
+                  <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+                  with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                    target="_blank">Colorlib</a>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/fungsi.js"></script>
+    <script src="js/register.js"></script>
+
+</body>
+
+</html>
